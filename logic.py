@@ -12,7 +12,7 @@ class Pokemon:
         self.img = self.get_img()
         self.name = self.get_name()
         self.hp = self.get_hp()
-        self.attack = self.get_attack()
+        self.power = self.get_attack()
         self.defense = self.get_defense()
         self.speed = self.get_speed()
         self.mana = self.get_mana()
@@ -83,8 +83,8 @@ class Pokemon:
             chance = randint(1,5)
             if chance == 1:
                 return "Покемон-волшебник применил щит в сражении"
-        if enemy.hp > self.attack:
-            enemy.hp -= self.attack
+        if enemy.hp > self.power:
+            enemy.hp -= self.power
             return f"Сражение @{self.pokemon_trainer} с @{enemy.pokemon_trainer}"
         else:
             enemy.hp = 0
@@ -101,7 +101,7 @@ class Pokemon:
     def info_hp(self):
         return f"хп покемона: {self.hp}."
     def info_attack(self):
-        return f"атака покемона: {self.attack}."
+        return f"атака покемона: {self.power}."
     # Метод класса для получения картинки покемона
     def info_defense(self):
         return f"защита покемона: {self.defense}."
@@ -114,17 +114,17 @@ class Pokemon:
 class Wizard(Pokemon):
     def attack(self, enemy):
         super_attack = randint(5, 15)
-        self.attack += super_attack
+        self.power += super_attack
         result = super().attack(enemy)
-        self.attack -= super_attack
+        self.power -= super_attack
         return f"{result}\nБоец применил супер-атаку: {super_attack}"
         
 class Fighter(Pokemon):
     def attack(self, enemy):
         super_attack = randint(5, 15)
-        self.attack += super_attack
+        self.power += super_attack
         result = super().attack(enemy)
-        self.attack -= super_attack
+        self.power -= super_attack
         return f"{result}\nБоец применил супер-атаку: {super_attack}"
     
 if __name__ == '__main__':
