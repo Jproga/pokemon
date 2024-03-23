@@ -53,7 +53,5 @@ def info(message):
         bot.send_message(message.chat.id, pok.info_speed())
         bot.send_message(message.chat.id, pok.info_mana()) 
 
-
-
 bot.infinity_polling(none_stop=True)
 
