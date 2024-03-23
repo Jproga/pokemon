@@ -53,5 +53,13 @@ def info(message):
         bot.send_message(message.chat.id, pok.info_speed())
         bot.send_message(message.chat.id, pok.info_mana()) 
 
+@bot.message_handler(commands=['feed'])
+def feed_pok(message):
+    if message.from_user.username in Pokemon.pokemons.keys():
+        pokemon = Pokemon.pokemons[message.from_user.username]
+        bot.reply_to(message, pokemon.feed())
+    else:
+        bot.reply_to(message, "У тебя нет покемона. \n/go - чтобы создать")
+
 bot.infinity_polling(none_stop=True)
 
