@@ -40,7 +40,20 @@ def attack_pok(message):
             bot.send_message(message.chat.id, "Сражаться можно только с покемонами")
     else:
             bot.send_message(message.chat.id, "Чтобы атаковать, нужно ответить на сообщения того, кого хочешь атаковать")
-    
+
+@bot.message_handler(commands=['info'])
+def info(message):
+    if message.from_user.username in Pokemon.pokemons.keys():
+        pok = Pokemon.pokemons[message.from_user.username]
+        bot.send_message(message.chat.id, pok.info())
+        bot.send_photo(message.chat.id, pok.show_img())
+        bot.send_message(message.chat.id, pok.info_hp())
+        bot.send_message(message.chat.id, pok.info_attack())
+        bot.send_message(message.chat.id, pok.info_defense())
+        bot.send_message(message.chat.id, pok.info_speed())
+        bot.send_message(message.chat.id, pok.info_mana()) 
+
+
 
 bot.infinity_polling(none_stop=True)
 

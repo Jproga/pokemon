@@ -94,7 +94,7 @@ class Pokemon:
 
     # Метод класса для получения информации
     def info(self):
-            return f"Имя твоего покеомона: {self.name}."
+            return f"Имя твоего покемона: {self.name}."
     # Метод класса для получения картинки покемона
     def show_img(self):
         return self.img
@@ -118,6 +118,8 @@ class Wizard(Pokemon):
         result = super().attack(enemy)
         self.power -= super_attack
         return f"{result}\nБоец применил супер-атаку: {super_attack}"
+    def info(self):
+        return f"Имя твоего покемона-волшебника: {self.name}."
         
 class Fighter(Pokemon):
     def attack(self, enemy):
@@ -126,6 +128,8 @@ class Fighter(Pokemon):
         result = super().attack(enemy)
         self.power -= super_attack
         return f"{result}\nБоец применил супер-атаку: {super_attack}"
+    def info(self):
+        return f"Имя твоего покемона-бойца: {self.name}."
     
 if __name__ == '__main__':
     wizard = Wizard("username1")
